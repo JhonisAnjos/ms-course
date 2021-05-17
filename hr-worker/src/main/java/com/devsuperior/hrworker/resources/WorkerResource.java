@@ -30,8 +30,8 @@ public class WorkerResource {
 	
 	private final WorkerRepository repository;
 	
-	@Value("${test.config}")
-	private String testConfig;
+//	@Value("${test.config}")
+//	private String testConfig;
 	
 	@GetMapping
 	public ResponseEntity<List<Worker>> findAll(){
@@ -41,14 +41,14 @@ public class WorkerResource {
 	
 	@GetMapping(value = "/configs")
 	public ResponseEntity<Void> getConfigs(){
-		logger.info("CONFIG = "+ testConfig);
+//		logger.info("CONFIG = "+ testConfig);
 		return ResponseEntity.noContent().build();
 	}
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Worker> findById(@PathVariable Long id){
 		
-		logger.info("PORT = "+ env.getProperty("local.server.port"));
+//		logger.info("PORT = "+ env.getProperty("local.server.port"));
 		
 		Worker obj = this.repository.findById(id).get();
 		return ResponseEntity.ok().body(obj);
